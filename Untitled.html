@@ -1,0 +1,43 @@
+/*
+function user_insert($user) {
+  \Drupal\node\Entity\Node::create([
+    'type' => 'article',
+    'title' => 'First node for user #' . $user->uid(),
+    'uid' => $user->uid(),
+  ])->save();
+}
+*/
+
+/*
+  function user_insert(\Drupal\user\UserInterface $user) {
+    echo("<script>console.log('$user');</script>");
+    $role = User::getRoles();
+    if($role == "project owner"){
+      echo("<script>console.log('si junchon');</script>");
+      \Drupal\node\Entity\Node::create([
+        'type' => 'Webform',
+        'title' => 'First node for user #' . $user->id(),
+        'uid' => $user->id(),
+      ])->save();
+    }
+  }
+*/
+
+
+/*
+  function hook_node_help($path, $arg) {
+  switch ($path) {
+    case "help.page.hook_user_node":
+      return '' . t("hook user module") . '';
+      break;
+  }
+} 
+*/
+
+
+    if($roleProject == true){
+      \Drupal\node\Entity\Node::create([
+      'type' => 'article',
+      'title' => 'First node for user #' . $user->id(),
+      'uid' => $user->id(),
+     ])->save();
