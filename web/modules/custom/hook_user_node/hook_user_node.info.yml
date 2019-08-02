@@ -1,6 +1,0 @@
-name: hook user node
-description: funtions to sensischallenge project
-type: module
-core: 8.x
-dependencies:
-  - drupal:hook_event_dispatcher

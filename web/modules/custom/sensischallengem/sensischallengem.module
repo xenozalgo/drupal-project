@@ -1,0 +1,19 @@
+<?php
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function sensischallengem_user_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() != 'user') {
+    return FALSE;
+  }
+
+  $uid = $entity->id();
+  // Logs a notice
+  \Drupal::logger('sensischallengem')->notice('Created user with id ' . $uid);
+
+  \Drupal\node\Entity\Node::create([
+    'type' => 'project',
+    'title' => 'Project for for user #' . $uid,
+    'uid' => $uid,
+  ])->save();
+}
